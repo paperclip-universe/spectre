@@ -77,5 +77,5 @@ echo ">>> Deleting rejects"
 find . | rg ".(rej|orig)" | xargs rm
 
 echo ">>> Ejecting MCP runtime"
-rm -rf bin/ docs/ eclipse/ jars/ lib/ logs/ reobf/ runtime/ temp/
-rm -f ./*.{bat,sh} CHANGELOG
+rm -rvf bin/ conf/ docs/ eclipse/ jars/ lib/ logs/ reobf/ runtime/ temp/
+rm -vf ./*.{bat,sh} CHANGELOG
