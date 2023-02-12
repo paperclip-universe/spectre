@@ -75,3 +75,7 @@ python2 runtime/decompile.py --norecompile
 
 echo ">>> Deleting rejects"
 find . | rg ".(rej|orig)" | xargs rm
+
+echo ">>> Ejecting MCP runtime"
+rm -rf bin/ docs/ eclipse/ jars/ lib/ logs/ reobf/ runtime/ temp/
+rm -f ./*.{bat,sh} CHANGELOG
