@@ -79,3 +79,5 @@ find . | rg ".(rej|orig)" | xargs rm
 echo ">>> Ejecting MCP runtime"
 rm -rvf bin/ conf/ docs/ eclipse/ jars/ lib/ logs/ reobf/ runtime/ temp/
 rm -vf ./*.{bat,sh} CHANGELOG
+mv ./src/* ./
+rm ./src
