@@ -1,2 +1,2 @@
 [workspace]
-members = ["spectre-util-world", "spectre-util-chat"]
+members = ["spectre-util-world", "spectre-util-chat", "spectre-block-material"]
