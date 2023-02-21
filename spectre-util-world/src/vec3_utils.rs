@@ -92,3 +92,36 @@ impl Bumpable for DVec3 {
         *self += direction.get_facing().direction * force as f64;
     }
 }
+
+#[test]
+fn sanity() {
+    let mut vec = DVec3::new(0.0, 0.0, 0.0);
+    vec.up();
+    assert_eq!(vec, DVec3::new(0.0, 1.0, 0.0));
+    vec.down();
+    assert_eq!(vec, DVec3::new(0.0, 0.0, 0.0));
+    vec.north();
+    assert_eq!(vec, DVec3::new(0.0, 0.0, -1.0));
+    vec.south();
+    assert_eq!(vec, DVec3::new(0.0, 0.0, 0.0));
+    vec.west();
+    assert_eq!(vec, DVec3::new(-1.0, 0.0, 0.0));
+    vec.east();
+    assert_eq!(vec, DVec3::new(0.0, 0.0, 0.0));
+    vec.bump(FacingDirection::Up);
+    assert_eq!(vec, DVec3::new(0.0, 1.0, 0.0));
+    vec.bump(FacingDirection::Down);
+    assert_eq!(vec, DVec3::new(0.0, 0.0, 0.0));
+    vec.bump(FacingDirection::North);
+    assert_eq!(vec, DVec3::new(0.0, 0.0, -1.0));
+    vec.bump(FacingDirection::South);
+    assert_eq!(vec, DVec3::new(0.0, 0.0, 0.0));
+    vec.bump(FacingDirection::West);
+    assert_eq!(vec, DVec3::new(-1.0, 0.0, 0.0));
+    vec.bump(FacingDirection::East);
+    assert_eq!(vec, DVec3::new(0.0, 0.0, 0.0));
+    vec.bump_with_force(FacingDirection::Up, 2);
+    assert_eq!(vec, DVec3::new(0.0, 2.0, 0.0));
+    vec.bump_with_force(FacingDirection::Down, 2);
+    assert_eq!(vec, DVec3::new(0.0, 0.0, 0.0));
+}
